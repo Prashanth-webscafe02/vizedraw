@@ -1,10 +1,12 @@
 import { Link } from 'react-router'
 import { firstOf, getPage, paragraphs, section } from '../content'
 import { Actions } from '../components/Action'
-import { Faq, Figure, Meta, Steps } from '../components/content'
-import { ReviewWorkspace, StackDiagram } from '../components/illustrations'
+import { Faq, Figure, Meta } from '../components/content'
+import { MarkupDetail, RecordLedger, SheetSet, StackDiagram, HandoffMap } from '../components/illustrations'
+import { ProductShowcase } from '../components/ProductShowcase'
 
 const page = getPage(1)
+const workflowVisuals = [<SheetSet />, <MarkupDetail />, <RecordLedger />, <HandoffMap />]
 
 const useCaseRoutes: Record<string, string> = {
   'Engineering review': '/use-cases/engineering-drawing-review',
@@ -48,9 +50,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero__visual">
-            <Figure>
-              <ReviewWorkspace />
-            </Figure>
+            <ProductShowcase />
           </div>
         </div>
       </section>
@@ -75,14 +75,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="band" id={how.id} aria-labelledby="how-title">
+      <section className="band home-workflow" id={how.id} aria-labelledby="how-title">
         <div className="container">
           <div className="section-head">
             <h2 id="how-title">{how.heading}</h2>
           </div>
-          <div className="process">
-            <Steps items={firstOf(how, 'steps').items} />
-          </div>
+          <ol className="workflow-stories">
+            {firstOf(how, 'steps').items.map((item, i) => (
+              <li className="workflow-story" key={item.term}>
+                <div className="workflow-story__copy"><h3>{item.term}</h3><p>{item.text}</p></div>
+                <Figure caption="Illustrative demo visual">{workflowVisuals[i]}</Figure>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

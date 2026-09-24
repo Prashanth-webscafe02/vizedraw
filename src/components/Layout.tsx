@@ -4,6 +4,7 @@ import { uiCopy } from '../content/ui'
 import { DialogProvider } from './dialogs'
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { Motion } from './Motion'
 
 /**
  * On route change: scroll to the hash target if there is one, otherwise to the
@@ -42,6 +43,7 @@ export function Layout() {
       <a className="skip-link" href="#main">{uiCopy.skip}</a>
       <Header />
       <ScrollManager />
+      <Motion />
       <main id="main" tabIndex={-1}>
         <Outlet />
       </main>

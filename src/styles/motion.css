@@ -1,0 +1,33 @@
+.showcase__footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; }
+.showcase__footer .showcase__caption { margin: 0; text-align: left; }
+.showcase__play { display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; min-height: 40px; background: transparent; color: #dddde5; border: 1px solid #55555f; border-radius: 6px; font-size: .75rem; white-space: nowrap; }
+.showcase__play:hover { border-color: #b4c8ff; color: #fff; }
+.showcase__tabs button { position: relative; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .showcase__panel:not([hidden]) { animation: view-arrive .55s cubic-bezier(.16,1,.3,1) both; }
+  .showcase__tabs button::after { content: ''; position: absolute; height: 2px; bottom: -2px; left: 0; right: 0; background: #b8ceff; transform: scaleX(0); transform-origin: left; }
+  .showcase--playing .showcase__tabs button[aria-selected='true']::after { animation: tour-progress 8s linear both; }
+  .showcase .ds-cloud, .showcase .ds-pin { animation: none; }
+  .showcase--visible .showcase__panel:not([hidden]) .ws__canvas .ds-cloud { animation: markup-trace 1.4s .45s ease-out both; }
+  .showcase--visible .showcase__panel:not([hidden]) .ws__canvas .ds-pin { animation: annotation-arrive .45s 1.3s both; transform-box: fill-box; transform-origin: center; }
+  .showcase--visible .showcase__panel:not([hidden]) .ws__thread { animation: view-arrive .7s 1.5s both; }
+  .showcase--visible .showcase__panel:not([hidden]) .compare__pane--b { animation: revision-wipe 1.2s .2s cubic-bezier(.16,1,.3,1) both; }
+  .showcase--visible .showcase__panel:not([hidden]) .ledger__row { animation: view-arrive .6s both; }
+  .showcase--visible .ledger__row:nth-child(2) { animation-delay: .15s !important; }
+  .showcase--visible .ledger__row:nth-child(3) { animation-delay: .3s !important; }
+  .showcase--visible .ledger__row:nth-child(4) { animation-delay: .45s !important; }
+  .motion-entered .sheetset__front { animation: sheet-settle 1s .1s cubic-bezier(.16,1,.3,1) both; }
+  .motion-entered .ds-cloud { animation: markup-trace 1.3s .4s ease-out both; }
+  .btn, .link-row__arrow, .resource__arrow { transition: transform .25s, background-color .25s, border-color .25s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); }
+  .workflow-story .figure { transition: border-color .3s, transform .4s; }
+  .workflow-story .figure:hover { transform: translateY(-4px); }
+}
+@keyframes tour-progress { to { transform: scaleX(1); } }
+@keyframes view-arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes markup-trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes annotation-arrive { from { opacity: 0; scale: .7; } to { opacity: 1; scale: 1; } }
+@keyframes revision-wipe { from { clip-path: inset(0 100% 0 0); opacity: .3; } to { clip-path: inset(0); opacity: 1; } }
+@keyframes sheet-settle { from { transform: translate(-10px, 12px) rotate(-2deg); } to { transform: none; } }

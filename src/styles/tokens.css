@@ -1,26 +1,26 @@
 /* VizeDraw design tokens — the single source for colour, type and spacing.
-   Navy page, white text, one blue accent; red only for drawing markups. */
+   Near-black page, white text, one blue accent; red only for drawing markups. */
 :root {
   color-scheme: dark;
 
   /* Surfaces */
-  --paper: #0b1a2f;
-  --paper-raised: #11243e;
-  --paper-sunk: #0e1f36;
-  --night: #0b1a2f;
-  --night-raised: #11243e;
+  --paper: #050505;
+  --paper-raised: #141416;
+  --paper-sunk: #101012;
+  --night: #050505;
+  --night-raised: #19191c;
 
   /* Text */
-  --ink: #f3f5f6;
-  --ink-2: #c0cbd8;
-  --ink-3: #8fa1b8;
+  --ink: #fafafa;
+  --ink-2: #d3d3d6;
+  --ink-3: #a4a4ab;
   --on-night: #f3f5f6;
   --on-night-2: #c0cbd8;
 
   /* Dividers */
-  --rule: #1d3453;
-  --rule-strong: #2c4668;
-  --rule-night: #1d3453;
+  --rule: #28282d;
+  --rule-strong: #46464e;
+  --rule-night: #28282d;
 
   /* Accents */
   --revision: #7fa8ff;
@@ -32,18 +32,18 @@
   --ok: #5fbf8a;
 
   /* Type */
-  --font-display: 'Archivo Variable', 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'IBM Plex Sans Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Figtree Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Figtree Variable', 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
-  --text-base: 1.0625rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.3rem;
-  --text-2xl: clamp(1.4rem, 1.2rem + 0.8vw, 1.85rem);
-  --text-3xl: clamp(2rem, 1.5rem + 2vw, 3.1rem);
-  --text-4xl: clamp(2.6rem, 1.6rem + 4vw, 4.75rem);
+  --text-base: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: clamp(1.75rem, 1.3rem + 1.4vw, 2.5rem);
+  --text-3xl: clamp(2.1rem, 1.5rem + 2.2vw, 3rem);
+  --text-4xl: clamp(2.6rem, 1.5rem + 4vw, 4.375rem);
 
   --measure: 66ch;
   --measure-narrow: 52ch;
@@ -62,7 +62,7 @@
 
   --container: 1180px;
   --gutter: clamp(16px, 4vw, 40px);
-  --header-h: 72px;
+  --header-h: 88px;
 
   --radius: 8px;
   --shadow-sheet: 0 24px 48px -24px rgba(0, 0, 0, 0.6);

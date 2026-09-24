@@ -115,6 +115,18 @@ export function DrawingSheet({ rev = 'A', cloud = false, pin = false, changed = 
       </g>
 
       {/* Dimensions */}
+      {/* Original axonometric detail of the same fictional cover plate. */}
+      <g transform="translate(465 115)">
+        <path d="M-58 0 L28 -30 L78 6 L-8 37 Z" fill="#e7ebef" stroke="#66717b" strokeWidth="1" />
+        <path d="M-58 0 L-8 37 L-8 47 L-58 10 Z" fill="#b4bdc7" stroke="#66717b" strokeWidth="1" />
+        <path d="M-8 37 L78 6 L78 16 L-8 47 Z" fill="#d0d7de" stroke="#66717b" strokeWidth="1" />
+        <path d="M-18 1 L18 -12 L42 5 L6 18 Z" fill="#fafbf9" stroke="#66717b" strokeWidth="1" />
+        <path d="M-18 1 L-18 8 L6 25 L6 18 Z" fill="#a5b0bc" stroke="#66717b" strokeWidth=".7" />
+        <path d="M6 18 L42 5 L42 12 L6 25 Z" fill="#c5ced7" stroke="#66717b" strokeWidth=".7" />
+        {[[-43, 1], [26, -22], [-7, 30], [64, 6]].map(([cx, cy]) => <ellipse key={`${cx}-${cy}`} cx={cx} cy={cy} rx="3.7" ry="2" fill="#87929d" stroke="#66717b" strokeWidth=".6" />)}
+        <text x="7" y="77" textAnchor="middle" fontSize="7" fill="#66717b">ISOMETRIC VIEW</text>
+        <text x="7" y="88" textAnchor="middle" fontSize="6" fill="#87929d">ILLUSTRATIVE · NOT TO SCALE</text>
+      </g>
       <g className="ds-ext">
         <line x1="60" y1="254" x2="60" y2="292" />
         <line x1="300" y1="254" x2="300" y2="292" />
