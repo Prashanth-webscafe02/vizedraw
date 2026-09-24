@@ -4,46 +4,7 @@
    "screens" framed on a near-black page, hairline dividers, one accent.
    Minimal on purpose: no eyebrows, counters, badges, glows or gradients. */
 
-:root {
-  color-scheme: dark;
-
-  --paper: #0b1a2f;
-  --paper-raised: #11243e;
-  --paper-sunk: #0e1f36;
-  --ink: #f3f5f6;
-  --ink-2: #c0cbd8;
-  --ink-3: #8fa1b8;
-  --night: #0b1a2f;
-  --night-raised: #11243e;
-  --on-night: #f3f5f6;
-  --on-night-2: #c0cbd8;
-  --rule: #1d3453;
-  --rule-strong: #2c4668;
-  --rule-night: #1d3453;
-
-  --revision: #7fa8ff;
-  --revision-soft: rgba(127, 168, 255, 0.12);
-  --redline: #e0654d;
-  --redline-soft: rgba(224, 101, 77, 0.14);
-  --pending: #d9a441;
-  --pending-soft: rgba(217, 164, 65, 0.12);
-  --ok: #5fbf8a;
-
-  --font-display: 'Archivo Variable', 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'IBM Plex Sans Variable', 'Segoe UI', system-ui, sans-serif;
-
-  --container: 1180px;
-  --header-h: 72px;
-  --section-y: clamp(4.5rem, 3rem + 6vw, 8.5rem);
-  --radius: 8px;
-
-  --text-4xl: clamp(2.6rem, 1.6rem + 4vw, 4.75rem);
-  --text-3xl: clamp(2rem, 1.5rem + 2vw, 3.1rem);
-  --text-2xl: clamp(1.4rem, 1.2rem + 0.8vw, 1.85rem);
-  --text-xl: 1.3rem;
-  --text-lg: 1.125rem;
-  --text-base: 1.0625rem;
-}
+/* Colour, type and spacing tokens live in tokens.css. */
 
 /* Illustrations are light "screens": they keep their own light palette. */
 .figure__frame,
@@ -163,7 +124,6 @@ a { color: var(--revision); }
   overflow: hidden;
 }
 .figure__caption { font-family: var(--font-body); font-size: 0.8125rem; text-transform: none; letter-spacing: 0; color: var(--ink-3); }
-.figure__tick { display: none; }
 
 .ws__bar { background: #fff; height: 44px; }
 .ws__dots { display: flex; }

@@ -1,53 +1,54 @@
-/* VizeDraw demo design tokens.
-   Palette: drafting paper, graphite ink, a redline accent reserved for
-   markups and emphasis, and revision blue for links and focus. */
+/* VizeDraw design tokens — the single source for colour, type and spacing.
+   Navy page, white text, one blue accent; red only for drawing markups. */
 :root {
+  color-scheme: dark;
+
   /* Surfaces */
-  --paper: #f5f3ee;
-  --paper-raised: #fbfaf7;
-  --paper-sunk: #ebe7de;
-  --night: #121a21;
-  --night-raised: #1b252e;
+  --paper: #0b1a2f;
+  --paper-raised: #11243e;
+  --paper-sunk: #0e1f36;
+  --night: #0b1a2f;
+  --night-raised: #11243e;
 
-  /* Ink */
-  --ink: #141d25;
-  --ink-2: #39444f;
-  --ink-3: #5f6a74;
-  --on-night: #eef0ee;
-  --on-night-2: #aeb7bf;
+  /* Text */
+  --ink: #f3f5f6;
+  --ink-2: #c0cbd8;
+  --ink-3: #8fa1b8;
+  --on-night: #f3f5f6;
+  --on-night-2: #c0cbd8;
 
-  /* Rules */
-  --rule: #d8d3c8;
-  --rule-strong: #b3ad9f;
-  --rule-night: #2c3944;
+  /* Dividers */
+  --rule: #1d3453;
+  --rule-strong: #2c4668;
+  --rule-night: #1d3453;
 
   /* Accents */
-  --redline: #c23b22;
-  --redline-soft: #f4dcd4;
-  --revision: #1c5896;
-  --revision-soft: #dde8f3;
-  --pending: #8a5a00;
-  --pending-soft: #f6ebcf;
-  --ok: #2d6a45;
+  --revision: #7fa8ff;
+  --revision-soft: rgba(127, 168, 255, 0.12);
+  --redline: #e0654d;
+  --redline-soft: rgba(224, 101, 77, 0.14);
+  --pending: #d9a441;
+  --pending-soft: rgba(217, 164, 65, 0.12);
+  --ok: #5fbf8a;
 
   /* Type */
-  --font-display: 'Archivo Variable', 'Archivo', 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'IBM Plex Sans Variable', 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Archivo Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans Variable', 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1.0625rem;
-  --text-lg: 1.1875rem;
-  --text-xl: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
-  --text-2xl: clamp(1.6rem, 1.25rem + 1.3vw, 2.25rem);
-  --text-3xl: clamp(2rem, 1.4rem + 2.2vw, 3.1rem);
-  --text-4xl: clamp(2.35rem, 1.5rem + 3.4vw, 4.4rem);
+  --text-lg: 1.125rem;
+  --text-xl: 1.3rem;
+  --text-2xl: clamp(1.4rem, 1.2rem + 0.8vw, 1.85rem);
+  --text-3xl: clamp(2rem, 1.5rem + 2vw, 3.1rem);
+  --text-4xl: clamp(2.6rem, 1.6rem + 4vw, 4.75rem);
 
   --measure: 66ch;
   --measure-narrow: 52ch;
 
-  /* Space (4px base) */
+  /* Space */
   --s-1: 0.25rem;
   --s-2: 0.5rem;
   --s-3: 0.75rem;
@@ -57,14 +58,13 @@
   --s-7: 3rem;
   --s-8: 4rem;
   --s-9: 6rem;
-  --section-y: clamp(4rem, 3rem + 4vw, 7.5rem);
+  --section-y: clamp(4.5rem, 3rem + 6vw, 8.5rem);
 
-  --container: 1240px;
+  --container: 1180px;
   --gutter: clamp(16px, 4vw, 40px);
-  --header-h: 68px;
+  --header-h: 72px;
 
-  --radius: 3px;
-  --shadow-sheet: 0 1px 0 rgba(20, 29, 37, 0.04), 0 18px 40px -24px rgba(20, 29, 37, 0.35);
+  --radius: 8px;
+  --shadow-sheet: 0 24px 48px -24px rgba(0, 0, 0, 0.6);
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --focus: 0 0 0 2px var(--paper), 0 0 0 4px var(--revision);
 }

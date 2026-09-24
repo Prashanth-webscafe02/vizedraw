@@ -33,7 +33,7 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
 
   return (
     <li
-      className={`nav__item${open ? ' is-open' : ''}`}
+      className={`nav__item${open ? ' is-open' : ''}${item.groups ? '' : ' nav__item--plain'}`}
       onMouseEnter={() => {
         if (!hoverCapable()) return
         window.clearTimeout(closeTimer.current)

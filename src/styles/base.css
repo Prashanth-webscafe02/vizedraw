@@ -130,8 +130,6 @@ main:focus { outline: none; }
   color: var(--ink-3);
 }
 
-.label--red { color: var(--redline); }
-
 .lede {
   font-size: var(--text-lg);
   line-height: 1.55;
@@ -161,7 +159,6 @@ main:focus { outline: none; }
 @media print {
   .site-header,
   .site-footer,
-  .demo-bar,
   .no-print { display: none !important; }
   body { background: #fff; }
 }

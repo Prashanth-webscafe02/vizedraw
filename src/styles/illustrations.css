@@ -182,7 +182,6 @@
 .compare__tag small { font-size: inherit; margin-left: 6px; color: #8c8578; text-transform: uppercase; }
 .compare__tag--b { color: var(--redline); }
 
-
 /* ---------- Handoff map ---------- */
 .handoff { width: 100%; height: auto; font-family: var(--font-body); }
 .handoff__bg { fill: #f3f1ec; }

@@ -40,7 +40,7 @@ export function ItemList({ items, variant = 'bullets', headingLevel = 3 }: { ite
   return (
     <ul className={`items items--${variant}`}>
       {items.map((item, i) => (
-        <li key={i} id={item.term ? slug(item.term) : undefined}>
+        <li key={i} id={item.term ? slug(item.term) : undefined} className={item.term ? 'has-term' : undefined}>
           {item.term ? (
             <>
               <H className="items__term">{item.term}</H>
