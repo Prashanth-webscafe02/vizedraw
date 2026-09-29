@@ -1,4 +1,4 @@
-import { firstOf, getPage, paragraphs, section } from '../content'
+import { firstOf, getPage, paragraphs, section, brief } from '../content'
 import { Action } from '../components/Action'
 import { Figure, Hero, Meta } from '../components/content'
 import { AccessBoundary, MarkupDetail, RevisionCompare, TitleBlockDetail } from '../components/illustrations'
@@ -29,7 +29,7 @@ export default function UseCases() {
                 <li key={s.id} id={s.id} className="workflow">
                   <div className="workflow__copy">
                     <h2>{s.heading}</h2>
-                    <p>{paragraphs(s)[0]}</p>
+                    <p>{brief(paragraphs(s)[0])}</p>
                     <Action cta={cta.primary} variant="secondary" />
                   </div>
                   <div className="workflow__visual"><Figure>{visual}</Figure></div>
@@ -43,7 +43,7 @@ export default function UseCases() {
       <section className="band band--sunk" id={evaluation.id} aria-labelledby={`${evaluation.id}-h`}>
         <div className="container split">
           <h2 id={`${evaluation.id}-h`}>{evaluation.heading}</h2>
-          <p className="lede">{paragraphs(evaluation)[0]}</p>
+          <p className="lede">{brief(paragraphs(evaluation)[0])}</p>
         </div>
       </section>
     </>

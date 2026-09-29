@@ -1,6 +1,6 @@
 import { useId, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
-import { firstOf, getPage, section } from '../content'
+import { firstOf, getPage, section, brief } from '../content'
 import { uiCopy } from '../content/ui'
 import { getResources, matches, resourceTypes, type Resource, type ResourceType } from '../content/resources'
 import { utility } from '../content/site'
@@ -18,7 +18,7 @@ function ResourceRow({ r }: { r: Resource }) {
         <span className="resource__body">
           <span className="resource__type">{r.type}</span>
           <h3>{r.item.term}</h3>
-          <p>{r.item.text}</p>
+          <p>{brief(r.item.text)}</p>
         </span>
         <svg className="resource__arrow" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true">
           <path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.6" />

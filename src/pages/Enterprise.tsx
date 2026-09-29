@@ -1,4 +1,4 @@
-import { firstOf, getPage, paragraphs, section } from '../content'
+import { firstOf, getPage, paragraphs, section, brief } from '../content'
 import { Actions } from '../components/Action'
 import { Faq, Hero, Meta } from '../components/content'
 
@@ -23,7 +23,7 @@ export default function Enterprise() {
           <div>
             <h2 id={`${scope.id}-h`}>{scope.heading}</h2>
           </div>
-          <p className="lede">{paragraphs(scope)[0]}</p>
+          <p className="lede">{brief(paragraphs(scope)[0])}</p>
         </div>
       </section>
 
@@ -36,7 +36,7 @@ export default function Enterprise() {
             {firstOf(controls, 'list').items.map((item) => (
               <div key={item.term} className="matrix__row">
                 <dt>{item.term}</dt>
-                <dd>{item.text}</dd>
+                <dd>{brief(item.text)}</dd>
               </div>
             ))}
           </dl>
@@ -47,11 +47,11 @@ export default function Enterprise() {
         <div className="container duo">
           <div id={authority.id} className="duo__item">
             <h2>{authority.heading}</h2>
-            <p>{paragraphs(authority)[0]}</p>
+            <p>{brief(paragraphs(authority)[0])}</p>
           </div>
           <div id={validate.id} className="duo__item">
             <h2>{validate.heading}</h2>
-            <p>{paragraphs(validate)[0]}</p>
+            <p>{brief(paragraphs(validate)[0])}</p>
           </div>
         </div>
       </section>

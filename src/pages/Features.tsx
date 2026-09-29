@@ -1,4 +1,4 @@
-import { bodySections, firstOf, getPage, paragraphs, section } from '../content'
+import { bodySections, firstOf, getPage, paragraphs, section, brief } from '../content'
 import { Actions } from '../components/Action'
 import { Figure, Hero, Meta } from '../components/content'
 import { ReviewWorkspace } from '../components/illustrations'
@@ -26,13 +26,13 @@ export default function Features() {
               {features.map((f) => (
                 <li key={f.id} id={f.id} className="spec">
                   <h2 className="spec__title">{f.heading}</h2>
-                  <p>{paragraphs(f)[0]}</p>
+                  <p>{brief(paragraphs(f)[0])}</p>
                 </li>
               ))}
             </ol>
             <section id={availability.id} className="note-panel" aria-labelledby={`${availability.id}-h`}>
               <h2 id={`${availability.id}-h`}>{availability.heading}</h2>
-              <p>{paragraphs(availability)[0]}</p>
+              <p>{brief(paragraphs(availability)[0])}</p>
               <Actions primary={cta.primary} secondary={cta.secondary} />
             </section>
           </div>

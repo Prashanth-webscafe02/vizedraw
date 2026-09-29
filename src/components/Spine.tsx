@@ -10,13 +10,15 @@ interface SpineProps {
   visuals?: Record<string, ReactNode>
   /** How lists inside sections render. */
   list?: 'rows' | 'bullets' | 'checks' | 'grid'
+  /** Visual-first trim (default): one sentence per section, lists as labels. */
+  concise?: boolean
 }
 
 /**
  * Long-form layout: each section heading sits in a left column beside its
  * text. Used where the document gives a page several short sections.
  */
-export function Spine({ sections, callouts = [], visuals = {}, list = 'rows' }: SpineProps) {
+export function Spine({ sections, callouts = [], visuals = {}, list = 'rows', concise = true }: SpineProps) {
   return (
     <div className="container spine">
       <div className="spine__body">
@@ -32,7 +34,7 @@ export function Spine({ sections, callouts = [], visuals = {}, list = 'rows' }: 
             >
               <h2 id={`${s.id}-h`} className="spine__heading">{s.heading}</h2>
               <div className="spine__text">
-                <Blocks blocks={s.blocks} list={list} />
+                <Blocks blocks={s.blocks} list={list} concise={concise} />
               </div>
               {visual && <div className="spine__visual">{visual}</div>}
             </section>

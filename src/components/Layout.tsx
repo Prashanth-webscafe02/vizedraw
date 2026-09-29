@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react'
 import { Outlet, useLocation } from 'react-router'
 import { uiCopy } from '../content/ui'
 import { DialogProvider } from './dialogs'
+import { FluidBackground } from './FluidBackground'
+import { LiquidGlass } from './LiquidGlass'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { Motion } from './Motion'
@@ -40,6 +42,8 @@ function ScrollManager() {
 export function Layout() {
   return (
     <DialogProvider>
+      <FluidBackground />
+      <LiquidGlass />
       <a className="skip-link" href="#main">{uiCopy.skip}</a>
       <Header />
       <ScrollManager />

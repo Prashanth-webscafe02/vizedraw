@@ -12,7 +12,8 @@ const Chevron = () => (
 )
 
 function childRoutes(item: NavItem): string[] {
-  return (item.groups ?? []).flatMap((g) => g.links.map((l) => l.to.split('#')[0]))
+  // Anchors on the homepage ("/#integrations") never mark a section active.
+  return (item.groups ?? []).flatMap((g) => g.links.map((l) => l.to.split('#')[0])).filter((to) => to !== '/')
 }
 
 function isSectionActive(item: NavItem, pathname: string) {
@@ -74,12 +75,12 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
           >
             <Chevron />
           </button>
-          <div id={panelId} className="nav__panel" hidden={!open}>
+          <div id={panelId} className="nav__panel glass" hidden={!open}>
             {item.groups.map((group, i) => (
               <div className="nav__group" key={i}>
                 {group.heading && <span className="label">{group.heading}</span>}
                 <ul>
-                  {group.links.map((link) => (
+                  {group.links.map((link, n) => (
                     <li key={link.to}>
                       <Link
                         to={link.to}
@@ -87,7 +88,11 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
                         aria-current={pathname === link.to ? 'page' : undefined}
                         onClick={() => setOpen(false)}
                       >
-                        {link.label}
+                        <span className="nav__panel-num" aria-hidden="true">{String(n + 1).padStart(2, '0')}</span>
+                        <span className="nav__panel-text">
+                          <span className="nav__panel-label">{link.label}</span>
+                          {link.note && <span className="nav__panel-note">{link.note}</span>}
+                        </span>
                       </Link>
                     </li>
                   ))}

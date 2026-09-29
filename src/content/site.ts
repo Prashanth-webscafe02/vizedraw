@@ -5,6 +5,8 @@
 export interface NavLinkItem {
   label: string
   to: string
+  /** One-line description shown in the desktop dropdown. */
+  note?: string
 }
 
 export interface NavGroup {
@@ -19,88 +21,58 @@ export interface NavItem {
   groups?: NavGroup[]
 }
 
-/** Primary navigation — source: docx "Primary navigation" table. */
+/** Primary navigation — enterprise information architecture (2026 redesign). */
 export const primaryNav: NavItem[] = [
   {
     label: 'Product',
     to: '/product',
     groups: [{
       links: [
-        { label: 'Product overview', to: '/product' },
-        { label: 'Features', to: '/features' },
-        { label: 'Enterprise', to: '/enterprise' },
+        { label: 'Features', to: '/features', note: 'Workspace, revisions, review, measurement' },
+        { label: 'Product Overview', to: '/product', note: 'How the drawing workspace fits together' },
+        { label: 'Integrations', to: '/#integrations', note: 'Works around the systems you already use' },
       ],
     }],
   },
   {
-    label: 'Manufacturing',
-    to: '/manufacturing',
-    groups: [
-      { links: [{ label: 'Manufacturing overview', to: '/manufacturing' }] },
-      {
-        heading: 'Where VizeDraw fits',
-        links: [
-          { label: 'Custom machinery and equipment', to: '/manufacturing#custom-machinery-and-equipment' },
-          { label: 'Precision machining and contract manufacturing', to: '/manufacturing#precision-machining-and-contract-manufacturing' },
-          { label: 'Fabrication and tooling', to: '/manufacturing#fabrication-and-tooling' },
-          { label: 'Automotive and aerospace suppliers', to: '/manufacturing#automotive-and-aerospace-suppliers' },
-        ],
-      },
-    ],
-  },
-  {
-    label: 'Use Cases',
-    to: '/use-cases',
+    label: 'Solutions',
+    to: '/solutions',
     groups: [{
       links: [
-        { label: 'Engineering review', to: '/use-cases/engineering-drawing-review' },
-        { label: 'Revision review', to: '/use-cases/drawing-revision-review' },
-        { label: 'External review', to: '/use-cases/external-drawing-review' },
-        { label: 'Production and quality handoff', to: '/use-cases/production-quality-handoff' },
+        { label: 'Construction', to: '/solutions#construction', note: 'Drawing sets, RFIs and field issue' },
+        { label: 'Engineering', to: '/solutions#engineering', note: 'Design review and revision control' },
+        { label: 'Manufacturing', to: '/solutions#manufacturing', note: 'Release, inspection and quality handoff' },
+        { label: 'Fabrication', to: '/solutions#fabrication', note: 'Shop drawings, cut lists and takeoff' },
       ],
     }],
   },
   {
     label: 'Resources',
     to: '/resources',
-    groups: [
-      {
-        heading: 'Guides',
-        links: [
-          { label: 'Engineering drawing revision control guide', to: '/resources/engineering-drawing-revision-control' },
-          { label: 'Supplier drawing review guide', to: '/resources/supplier-drawing-review-guide' },
-          { label: 'AI in engineering drawing review', to: '/resources/ai-engineering-drawing-review' },
-        ],
-      },
-      {
-        links: [
-          { label: 'Checklist', to: '/resources/drawing-readiness-checklist' },
-          { label: 'Comparison', to: '/compare/pdm-vs-drawing-collaboration' },
-          { label: 'Worked example', to: '/resources/drawing-review-example' },
-        ],
-      },
-    ],
-  },
-  {
-    label: 'Pricing',
-    to: '/pricing',
-    groups: [{ links: [{ label: 'Annual plans and entitlements', to: '/pricing#plans' }] }],
+    groups: [{
+      links: [
+        { label: 'Documentation', to: '/drawing-knowledge', note: 'Concepts behind drawing knowledge' },
+        { label: 'Guides', to: '/resources', note: 'Checklists, guides and worked examples' },
+        { label: 'Blog', to: '/resources/drawing-review-example', note: 'Field notes and review examples' },
+      ],
+    }],
   },
   {
     label: 'Company',
     to: '/company',
     groups: [{
       links: [
-        { label: 'Company', to: '/company' },
-        { label: 'Contact', to: '/contact' },
+        { label: 'About', to: '/company', note: 'Principles behind VizeDraw' },
+        { label: 'Contact', to: '/contact', note: 'Talk to the team or book a demo' },
       ],
     }],
   },
+  { label: 'Pricing', to: '/pricing' },
 ]
 
 export const headerActions = {
-  signIn: { label: 'Sign in', to: '{{app.signin_url}}' },
-  startFree: { label: 'Start free', to: '{{app.signup_url}}' },
+  signIn: { label: 'Sign In', to: '{{app.signin_url}}' },
+  startFree: { label: 'Get Started', to: '{{app.signup_url}}' },
 }
 
 /** Footer — source: docx "Footer". */
@@ -113,6 +85,7 @@ export const footer = {
       links: [
         { label: 'Product', to: '/product' },
         { label: 'Features', to: '/features' },
+        { label: 'Solutions', to: '/solutions' },
         { label: 'Manufacturing', to: '/manufacturing' },
         { label: 'Use Cases', to: '/use-cases' },
         { label: 'Pricing', to: '/pricing' },

@@ -5,7 +5,8 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  /* Solid (no backdrop-filter): a filter would re-anchor the fixed mobile menu. */
+  /* No backdrop-filter here: it would re-anchor the fixed mobile menu. The
+     clay blur lives on ::before instead (see morph.css). */
   background: var(--paper);
   border-bottom: 1px solid var(--rule);
 }

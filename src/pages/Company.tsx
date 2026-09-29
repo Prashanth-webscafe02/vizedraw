@@ -1,4 +1,4 @@
-import { firstOf, getPage, paragraphs, section } from '../content'
+import { firstOf, getPage, paragraphs, section, brief } from '../content'
 import { Actions } from '../components/Action'
 import { Figure, Hero, Meta } from '../components/content'
 import { StackDiagram } from '../components/illustrations'
@@ -20,8 +20,7 @@ export default function Company() {
         <div className="container split">
           <h2 id={`${focus.id}-h`}>{focus.heading}</h2>
           <div className="prose">
-            <p className="lede">{paragraphs(focus)[0]}</p>
-            <p className="pull">{paragraphs(focus)[1]}</p>
+            <p className="lede">{brief(paragraphs(focus)[0])}</p>
           </div>
         </div>
       </section>
@@ -35,7 +34,7 @@ export default function Company() {
             {firstOf(principles, 'list').items.map((item) => (
               <li key={item.term}>
                 <h3>{item.term}</h3>
-                <p>{item.text}</p>
+                <p>{brief(item.text)}</p>
               </li>
             ))}
           </ol>
@@ -46,7 +45,7 @@ export default function Company() {
         <div className="container split">
           <div className="prose">
             <h2 id={`${role.id}-h`}>{role.heading}</h2>
-            <p className="lede">{paragraphs(role)[0]}</p>
+            <p className="lede">{brief(paragraphs(role)[0])}</p>
             <Actions primary={cta.primary} secondary={cta.secondary} />
           </div>
           <Figure>

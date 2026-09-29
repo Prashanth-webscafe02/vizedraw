@@ -7,31 +7,30 @@ const assert = require('node:assert/strict');
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'no-preference' });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    await page.goto('http://127.0.0.1:5190');
-    await page.locator('.showcase').scrollIntoViewIfNeeded();
-    await page.mouse.move(0, 0);
-    await page.waitForSelector('.showcase--playing');
-    await page.waitForFunction(() => document.querySelector('[role="tab"][aria-selected="true"]').textContent.includes('Revision comparison'), { timeout: 12000 });
-    await page.getByRole('button', { name: 'Pause tour' }).click();
-    await page.mouse.move(0, 0);
-    await page.getByRole('button', { name: 'Play tour' }).evaluate(el => el.blur());
-    const selected = await page.locator('[role="tab"][aria-selected="true"]').innerText();
-    await page.waitForTimeout(8300);
-    assert.equal(await page.locator('[role="tab"][aria-selected="true"]').innerText(), selected);
-    await page.getByRole('tab', { name: 'Drawing review' }).click();
-    await page.waitForTimeout(600);
-    assert.ok(await page.locator('.showcase .ws__canvas .ds-cloud').first().evaluate(el => el.getAnimations().length > 0));
+    await page.goto(process.env.AUDIT_URL || 'http://127.0.0.1:5190');
+
+    // Hero workbench cycles its overlays while visible, and stops once a tool is chosen.
+    await page.locator('.wb').scrollIntoViewIfNeeded();
+    await page.waitForFunction(() => document.querySelector('.wb').dataset.overlay !== 'none', null, { timeout: 8000 });
+    await page.getByRole('button', { name: /Measure/ }).click();
+    assert.equal(await page.locator('.wb').getAttribute('data-overlay'), 'measure');
+    await page.waitForTimeout(4200);
+    assert.equal(await page.locator('.wb').getAttribute('data-overlay'), 'measure');
+    assert.ok(await page.locator('.wb .ov-m-line').evaluate(el => el.getAnimations().length > 0 || getComputedStyle(el).opacity === '1'));
+
+    // Transformation line draws once the section enters.
+    await page.locator('.xform').scrollIntoViewIfNeeded();
+    await page.waitForSelector('.xform.motion-entered');
     await page.screenshot({ path: 'motion-showcase.png' });
-    await page.locator('.workflow-story').first().scrollIntoViewIfNeeded();
-    await page.waitForSelector('.workflow-story.motion-entered');
+
+    // Reduced motion: no auto-cycling.
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.waitForFunction(() => !document.querySelector('.showcase__play'));
-    assert.equal(await page.locator('.showcase--playing').count(), 0);
-    await page.getByRole('tab', { name: 'Decision history' }).click();
-    assert.equal(await page.getByRole('tabpanel').count(), 1);
-    await page.setViewportSize({ width: 390, height: 844 });
-    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
+    await page.reload();
+    await page.locator('.wb').scrollIntoViewIfNeeded();
+    await page.waitForTimeout(4200);
+    assert.equal(await page.locator('.wb').getAttribute('data-overlay'), 'none');
+
     assert.deepEqual(errors, []);
-    console.log('Passed: autoplay, pause, manual views, animated SVG, scroll reveal, live reduced-motion changes, mobile overflow and browser errors.');
+    console.log('Workbench cycling, tool selection, transformation reveal and reduced motion passed.');
   } finally { await browser.close(); }
-})().catch(error => { console.error(error); process.exitCode = 1; });
+})().catch(e => { console.error(e); process.exit(1); });

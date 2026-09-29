@@ -55,7 +55,7 @@ export default function UseCaseDetail({ id }: { id: 5 | 6 | 7 | 8 }) {
             <div className="section-head">
               <h2 id={`${featured.id}-h`}>{featured.heading}</h2>
             </div>
-            <ItemList items={firstOf(featured, 'list').items} variant="grid" />
+            <ItemList items={firstOf(featured, 'list').items} variant="grid" concise />
           </div>
         </section>
       )}

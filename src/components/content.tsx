@@ -1,7 +1,7 @@
 import { useEffect, useId, useState, type ReactNode } from 'react'
 import { Link } from 'react-router'
 import type { Block, Item, Page } from '../content/types'
-import { paragraphs, blocksOf, slug, splitNumbered } from '../content'
+import { brief, paragraphs, blocksOf, slug, splitNumbered } from '../content'
 import { resolveFields } from '../content/commercial'
 import { uiCopy } from '../content/ui'
 import { Actions } from './Action'
@@ -35,19 +35,19 @@ export function FieldText({ text }: { text: string }) {
 
 type ListStyle = 'rows' | 'bullets' | 'checks' | 'grid'
 
-export function ItemList({ items, variant = 'bullets', headingLevel = 3 }: { items: Item[]; variant?: ListStyle; headingLevel?: 3 | 4 }) {
+export function ItemList({ items, variant = 'bullets', headingLevel = 3, concise = false }: { items: Item[]; variant?: ListStyle; headingLevel?: 3 | 4; concise?: boolean }) {
   const H = headingLevel === 3 ? 'h3' : 'h4'
   return (
-    <ul className={`items items--${variant}`}>
+    <ul className={`items items--${variant}${concise ? ' items--concise' : ''}`}>
       {items.map((item, i) => (
         <li key={i} id={item.term ? slug(item.term) : undefined} className={item.term ? 'has-term' : undefined}>
           {item.term ? (
             <>
               <H className="items__term">{item.term}</H>
-              <p>{item.text}</p>
+              {!concise && <p>{item.text}</p>}
             </>
           ) : (
-            <span>{item.text}</span>
+            <span>{concise ? brief(item.text) : item.text}</span>
           )}
         </li>
       ))}
@@ -55,7 +55,7 @@ export function ItemList({ items, variant = 'bullets', headingLevel = 3 }: { ite
   )
 }
 
-export function Steps({ items, compact = false }: { items: Item[]; compact?: boolean }) {
+export function Steps({ items, compact = false, concise = false }: { items: Item[]; compact?: boolean; concise?: boolean }) {
   return (
     <ol className={`steps${compact ? ' steps--compact' : ''}`}>
       {items.map((item, i) => (
@@ -63,7 +63,7 @@ export function Steps({ items, compact = false }: { items: Item[]; compact?: boo
           <span className="steps__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
           <div>
             {item.term && <h3 className="steps__term">{item.term}</h3>}
-            <p>{item.text}</p>
+            {!(concise && item.term) && <p>{concise ? brief(item.text) : item.text}</p>}
           </div>
         </li>
       ))}
@@ -134,20 +134,24 @@ interface BlocksProps {
   list?: ListStyle
   /** Skip CTA blocks (when a layout places them elsewhere). */
   hideCta?: boolean
+  /** Visual-first trim: first paragraph as one sentence, lists and steps as labels. */
+  concise?: boolean
 }
 
 /** Generic renderer for document blocks, in source order. */
-export function Blocks({ blocks, list = 'bullets', hideCta = false }: BlocksProps) {
+export function Blocks({ blocks, list = 'bullets', hideCta = false, concise = false }: BlocksProps) {
+  const firstP = blocks.findIndex((b) => b.type === 'p')
   return (
     <>
       {blocks.map((b, i) => {
         switch (b.type) {
           case 'p':
-            return <p key={i}><FieldText text={b.text} /></p>
+            if (concise && i !== firstP) return null
+            return <p key={i}><FieldText text={concise ? brief(b.text) : b.text} /></p>
           case 'list':
-            return <ItemList key={i} items={b.items} variant={list} />
+            return <ItemList key={i} items={b.items} variant={list} concise={concise} />
           case 'steps':
-            return <Steps key={i} items={b.items} />
+            return <Steps key={i} items={b.items} concise={concise} />
           case 'cta':
             return hideCta ? null : <Actions key={i} primary={b.primary} secondary={b.secondary} />
           case 'table':
@@ -196,9 +200,7 @@ export function Hero({ page, crumbs, visual, variant = 'split', children }: Hero
         <div className="hero__copy">
           {crumbs && <Breadcrumbs trail={crumbs} />}
           <h1>{title}</h1>
-          {ledes.map((t) => (
-            <p key={t} className="lede">{t}</p>
-          ))}
+          {ledes[0] && <p className="lede">{brief(ledes[0])}</p>}
           {cta && <Actions primary={cta.primary} secondary={cta.secondary} />}
           {children}
         </div>

@@ -3,6 +3,7 @@ import { Layout } from './components/Layout'
 import Home from './pages/Home'
 import Product from './pages/Product'
 import Manufacturing from './pages/Manufacturing'
+import Solutions from './pages/Solutions'
 import UseCases from './pages/UseCases'
 import UseCaseDetail from './pages/UseCaseDetail'
 import Features from './pages/Features'
@@ -18,10 +19,11 @@ import Company from './pages/Company'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 
-/** The 21 marketing routes from the approved site architecture, plus 404. */
+/** The 21 marketing routes from the approved site architecture, the Solutions hub, plus 404. */
 const routes = [
   { path: '/', element: <Home /> },
   { path: '/product', element: <Product /> },
+  { path: '/solutions', element: <Solutions /> },
   { path: '/manufacturing', element: <Manufacturing /> },
   { path: '/use-cases', element: <UseCases /> },
   { path: '/use-cases/engineering-drawing-review', element: <UseCaseDetail id={5} /> },

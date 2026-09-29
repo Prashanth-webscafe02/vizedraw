@@ -8,7 +8,7 @@ export function Motion() {
   const reduced = useReducedMotion()
   useEffect(() => {
     if (reduced || !('IntersectionObserver' in window)) return
-    const selector = '.hero__copy h1, .hero__copy .lede, .hero__copy .actions, .hero__visual, .section-head, .workflow-story, .problem__grid, .spine__section, .split, .closing__panel'
+    const selector = '.hero__copy h1, .hero__copy .lede, .hero__copy .actions, .hero__visual, .section-head, .workflow-story, .problem__grid, .spine__section, .split, .closing__panel, .marker, .lead-grid, .xform, .ind, .systems, .ent'
     const targets = [...document.querySelectorAll<HTMLElement>(`main :is(${selector})`)]
       .filter(el => !el.parentElement?.closest(selector))
     const animations = new Map<Element, Animation>()

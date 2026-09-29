@@ -1,4 +1,4 @@
-import { firstOf, getPage, paragraphs, section, slug } from '../content'
+import { firstOf, getPage, paragraphs, section, slug, brief } from '../content'
 import { Actions } from '../components/Action'
 import { Figure, Hero, Meta } from '../components/content'
 import { HandoffMap } from '../components/illustrations'
@@ -11,7 +11,7 @@ export default function Manufacturing() {
   const fits = section(page, 'Where VizeDraw fits')
   const roles = section(page, 'One drawing different responsibilities')
   const first = section(page, 'Choose the first workflow carefully')
-  const [rolesText, rolesBoundary] = paragraphs(roles)
+  const [rolesText] = paragraphs(roles)
   const firstCta = firstOf(first, 'cta')
 
   return (
@@ -27,8 +27,7 @@ export default function Manufacturing() {
         <div className="container split">
           <h2 id={`${handoff.id}-h`}>{handoff.heading}</h2>
           <div className="prose">
-            <p className="lede">{paragraphs(handoff)[0]}</p>
-            <p className="pull">{paragraphs(handoff)[1]}</p>
+            <p className="lede">{brief(paragraphs(handoff)[0])}</p>
           </div>
         </div>
       </section>
@@ -42,7 +41,7 @@ export default function Manufacturing() {
             {firstOf(fits, 'list').items.map((item) => (
               <li key={item.term} id={slug(item.term ?? '')}>
                 <h3>{item.term}</h3>
-                <p>{item.text}</p>
+                <p>{brief(item.text)}</p>
               </li>
             ))}
           </ol>
@@ -53,7 +52,6 @@ export default function Manufacturing() {
         <div className="container split">
           <div>
             <h2 id={`${roles.id}-h`}>{roles.heading}</h2>
-            <p className="roles__boundary">{rolesBoundary}</p>
           </div>
           <ol className="roles">
             {sentences(rolesText).map((line) => (
@@ -68,7 +66,7 @@ export default function Manufacturing() {
           <div className="closing__panel">
             <div>
               <h2 id={`${first.id}-h`}>{first.heading}</h2>
-              <p className="lede">{paragraphs(first)[0]}</p>
+              <p className="lede">{brief(paragraphs(first)[0])}</p>
             </div>
             <Actions primary={firstCta.primary} secondary={firstCta.secondary} />
           </div>

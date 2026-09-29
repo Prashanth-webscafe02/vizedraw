@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { blocksOf, firstOf, getPage, paragraphs, section } from '../content'
+import { blocksOf, firstOf, getPage, paragraphs, section, brief } from '../content'
 import { Action } from '../components/Action'
 import { FieldText, Hero, ItemList, Meta } from '../components/content'
 
@@ -83,7 +83,7 @@ export default function Pricing() {
             <article className="plan" id={free.id} aria-labelledby={`${free.id}-h`}>
               <h2 id={`${free.id}-h`} className="plan__name">{free.heading}</h2>
               <p className="plan__price">{freePriceShown}</p>
-              <p className="plan__desc">{freeDesc}</p>
+              <p className="plan__desc">{brief(freeDesc)}</p>
               <p className="plan__allow"><FieldText text={freeAllowances} /></p>
               <Action cta={firstOf(free, 'cta').primary} className="plan__cta" />
             </article>
@@ -94,7 +94,7 @@ export default function Pricing() {
                 <article key={s.id} className={`plan${s.heading === 'Pro' ? ' plan--pro' : ''}`} id={s.id} aria-labelledby={`${s.id}-h`}>
                   <h2 id={`${s.id}-h`} className="plan__name">{s.heading}</h2>
                   <Price text={line} currency={currency} />
-                  <p className="plan__desc">{desc}</p>
+                  <p className="plan__desc">{brief(desc)}</p>
                   <Action cta={cta.primary} className="plan__cta" />
                 </article>
               )
@@ -102,8 +102,8 @@ export default function Pricing() {
 
             <article className="plan plan--enterprise" id={enterprise.id} aria-labelledby={`${enterprise.id}-h`}>
               <h2 id={`${enterprise.id}-h`} className="plan__name">{enterprise.heading}</h2>
-              <p className="plan__price plan__price--text">{paragraphs(enterprise)[0]}</p>
-              <p className="plan__desc">{paragraphs(enterprise)[1]}</p>
+              <p className="plan__price plan__price--text">{brief(paragraphs(enterprise)[0])}</p>
+              <p className="plan__desc">{brief(paragraphs(enterprise)[1])}</p>
               <Action cta={firstOf(enterprise, 'cta').primary} variant="secondary" className="plan__cta" />
             </article>
           </div>

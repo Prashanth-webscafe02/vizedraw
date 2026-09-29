@@ -1,52 +1,68 @@
 /* VizeDraw design tokens — the single source for colour, type and spacing.
-   Near-black page, white text, one blue accent; red only for drawing markups. */
+   "Drafting room" palette: architectural white and stone surfaces, graphite
+   type, precision-grey rules and one signal accent (Drafting Vermilion). The
+   site is intentionally light only. */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Surfaces */
-  --paper: #050505;
-  --paper-raised: #141416;
-  --paper-sunk: #101012;
-  --night: #050505;
-  --night-raised: #19191c;
-
-  /* Text */
-  --ink: #fafafa;
-  --ink-2: #d3d3d6;
-  --ink-3: #a4a4ab;
-  --on-night: #f3f5f6;
-  --on-night-2: #c0cbd8;
-
-  /* Dividers */
-  --rule: #28282d;
-  --rule-strong: #46464e;
-  --rule-night: #28282d;
-
-  /* Accents */
-  --revision: #7fa8ff;
-  --revision-soft: rgba(127, 168, 255, 0.12);
-  --redline: #e0654d;
-  --redline-soft: rgba(224, 101, 77, 0.14);
-  --pending: #d9a441;
-  --pending-soft: rgba(217, 164, 65, 0.12);
-  --ok: #5fbf8a;
+  /* Surfaces — warm architectural white through soft stone */
+  --paper: #f7f5f0;          /* architectural white (page) */
+  --paper-raised: #fdfcf9;   /* technical paper (sheets, panels) */
+  --paper-sunk: #efece5;     /* soft ivory / light concrete */
+  --stone: #e6e2d9;          /* soft stone */
+  --stone-2: #d9d4c8;
+  --night: #efece5;          /* legacy alias: former dark bands now sit on stone */
+  --night-raised: #fdfcf9;
 
   /* Type */
-  --font-display: 'Figtree Variable', 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'Figtree Variable', 'Segoe UI', system-ui, sans-serif;
+  --ink: #1d1f21;            /* deep graphite */
+  --ink-2: #45484b;
+  --ink-3: #6f716f;          /* technical grey */
+  --ink-4: #9a9a94;
+  --on-night: var(--ink);
+  --on-night-2: var(--ink-2);
+
+  /* Precision rules */
+  --rule: #e0dcd2;
+  --rule-strong: #c9c4b8;
+  --rule-ink: #1d1f21;
+  --rule-night: var(--rule);
+  --metal: #a7a59f;          /* brushed metal, used for fine instrument details */
+
+  /* Signal accent — used sparingly: CTAs, active states, measurements, changes */
+  --accent: #c8471d;
+  --accent-ink: #a8390f;
+  --accent-soft: #f6e4db;
+  --accent-wash: rgba(200, 71, 29, 0.08);
+
+  /* Legacy semantic names now map onto the single-accent system */
+  --revision: var(--accent);
+  --revision-soft: var(--accent-soft);
+  --redline: var(--accent);
+  --redline-soft: var(--accent-soft);
+  --pending: #8a6412;
+  --pending-soft: #f3ead2;
+  --ok: #4d7a5a;
+  --ok-soft: #e3ece2;
+
+  /* Type */
+  --font-display: 'Instrument Sans Variable', 'Helvetica Neue', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Instrument Sans Variable', 'Helvetica Neue', 'Segoe UI', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', 'Times New Roman', serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
-  --text-base: 1.125rem;
-  --text-lg: 1.25rem;
-  --text-xl: 1.5rem;
-  --text-2xl: clamp(1.75rem, 1.3rem + 1.4vw, 2.5rem);
-  --text-3xl: clamp(2.1rem, 1.5rem + 2.2vw, 3rem);
-  --text-4xl: clamp(2.6rem, 1.5rem + 4vw, 4.375rem);
+  --text-base: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: 1.4rem;
+  --text-2xl: clamp(1.7rem, 1.3rem + 1.3vw, 2.4rem);
+  --text-3xl: clamp(2.1rem, 1.4rem + 2.4vw, 3.4rem);
+  --text-4xl: clamp(2.6rem, 1.4rem + 4.4vw, 5.25rem);
+  --text-display: clamp(2.9rem, 1.2rem + 6vw, 6.6rem);
 
   --measure: 66ch;
-  --measure-narrow: 52ch;
+  --measure-narrow: 50ch;
 
   /* Space */
   --s-1: 0.25rem;
@@ -58,13 +74,15 @@
   --s-7: 3rem;
   --s-8: 4rem;
   --s-9: 6rem;
-  --section-y: clamp(4.5rem, 3rem + 6vw, 8.5rem);
+  --section-y: clamp(4.5rem, 3rem + 5vw, 8rem);
 
-  --container: 1180px;
-  --gutter: clamp(16px, 4vw, 40px);
-  --header-h: 88px;
+  --container: 1320px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --header-h: 68px;
 
-  --radius: 8px;
-  --shadow-sheet: 0 24px 48px -24px rgba(0, 0, 0, 0.6);
+  --radius: 2px;
+  --shadow-sheet: 0 1px 0 rgba(29, 31, 33, 0.04), 0 18px 40px -22px rgba(52, 44, 30, 0.28);
+  --shadow-table: 0 1px 0 rgba(29, 31, 33, 0.05), 0 40px 80px -40px rgba(52, 44, 30, 0.35);
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-precise: cubic-bezier(0.65, 0, 0.35, 1);
 }

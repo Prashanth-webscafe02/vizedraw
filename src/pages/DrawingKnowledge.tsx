@@ -1,4 +1,4 @@
-import { firstOf, getPage, paragraphs, section } from '../content'
+import { firstOf, getPage, paragraphs, section, brief } from '../content'
 import { Actions } from '../components/Action'
 import { Figure, Hero, Meta } from '../components/content'
 import { DrawingSheet } from '../components/illustrations'
@@ -32,7 +32,7 @@ export default function DrawingKnowledge() {
               {parts.map((item, i) => (
                 <li key={item.term} className={`anatomy__part anatomy__part--${i + 1}`}>
                   <h3>{item.term}</h3>
-                  <p>{item.text}</p>
+                  <p>{brief(item.text)}</p>
                 </li>
               ))}
             </ol>
@@ -44,8 +44,7 @@ export default function DrawingKnowledge() {
         <div className="container split">
           <h2 id={`${gap.id}-h`}>{gap.heading}</h2>
           <div className="prose">
-            <p className="lede lede--night">{paragraphs(gap)[0]}</p>
-            <p>{paragraphs(gap)[1]}</p>
+            <p className="lede lede--night">{brief(paragraphs(gap)[0])}</p>
           </div>
         </div>
       </section>
@@ -54,11 +53,11 @@ export default function DrawingKnowledge() {
         <div className="container duo">
           <div id={intent.id} className="duo__item">
             <h2>{intent.heading}</h2>
-            <p>{paragraphs(intent)[0]}</p>
+            <p>{brief(paragraphs(intent)[0])}</p>
           </div>
           <div id={readiness.id} className="duo__item">
             <h2>{readiness.heading}</h2>
-            <p>{paragraphs(readiness)[0]}</p>
+            <p>{brief(paragraphs(readiness)[0])}</p>
           </div>
         </div>
       </section>
@@ -68,7 +67,7 @@ export default function DrawingKnowledge() {
           <div className="closing__panel">
             <div>
               <h2 id={`${helps.id}-h`}>{helps.heading}</h2>
-              <p className="lede">{paragraphs(helps)[0]}</p>
+              <p className="lede">{brief(paragraphs(helps)[0])}</p>
             </div>
             <Actions primary={helpsCta.primary} secondary={helpsCta.secondary} />
           </div>

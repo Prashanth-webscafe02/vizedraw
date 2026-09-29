@@ -42,3 +42,13 @@ export function splitNumbered(heading: string): { num?: string; title: string } 
 
 export { pages }
 export type { Page, Section, Block }
+
+/**
+ * Presentation trim: the first sentence of a paragraph. The approved copy
+ * stays verbatim in pages.ts; pages show this shorter form so layouts stay
+ * visual-first. Returns the text unchanged when it has no sentence break.
+ */
+export function brief(text: string): string {
+  const m = text.match(/^.*?[.!?](?=\s+[A-Z0-9(“"‘']|$)/)
+  return m ? m[0] : text
+}
