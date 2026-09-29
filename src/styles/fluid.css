@@ -2,7 +2,7 @@
    the page; large surfaces become light translucent washes so the flow shows
    through, and the old drafting-grid overlays are removed. */
 
-body { background: #eee6d8; }
+body { background: #e3f0f0; }
 body::before { display: none; }
 
 .fluid-bg {
@@ -12,11 +12,11 @@ body::before { display: none; }
   pointer-events: none;
   /* Fallback when WebGL is unavailable: a still version of the same field. */
   background:
-    radial-gradient(60% 50% at 18% 30%, rgba(234, 178, 149, 0.85), transparent 70%),
-    radial-gradient(50% 45% at 82% 62%, rgba(196, 205, 200, 0.95), transparent 70%),
-    radial-gradient(55% 50% at 55% 95%, rgba(221, 204, 179, 0.95), transparent 70%),
-    radial-gradient(40% 35% at 60% 25%, rgba(216, 154, 122, 0.5), transparent 70%),
-    #eee6d8;
+    radial-gradient(60% 50% at 18% 30%, rgba(143, 211, 214, 0.85), transparent 70%),
+    radial-gradient(50% 45% at 82% 62%, rgba(183, 215, 215, 0.95), transparent 70%),
+    radial-gradient(55% 50% at 55% 95%, rgba(198, 229, 229, 0.95), transparent 70%),
+    radial-gradient(40% 35% at 60% 25%, rgba(79, 182, 186, 0.5), transparent 70%),
+    #e3f0f0;
 }
 .fluid-bg canvas {
   display: block;

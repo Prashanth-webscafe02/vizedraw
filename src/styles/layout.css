@@ -324,7 +324,7 @@ body.menu-open { overflow: hidden; }
 
 .site-footer__legal button:hover { text-decoration: underline; }
 
-.site-footer :focus-visible { outline-color: #8fb8e6; }
+.site-footer :focus-visible { outline-color: var(--accent); }
 
 @media (max-width: 860px) {
   .site-footer__top { grid-template-columns: repeat(3, minmax(0, 1fr)); }

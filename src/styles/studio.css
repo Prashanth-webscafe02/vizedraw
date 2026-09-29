@@ -433,7 +433,7 @@
 .ov-pin text { font-size: 9px; fill: #fff; text-anchor: middle; font-weight: 500; }
 .ov-box { fill: none; stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 4 2; }
 .ov-arrow { fill: none; stroke: var(--accent); stroke-width: 1.2; }
-.ov-hit { fill: rgba(200, 71, 29, 0.18); stroke: var(--accent); stroke-width: 0.8; }
+.ov-hit { fill: rgba(79, 182, 186, 0.18); stroke: var(--accent); stroke-width: 0.8; }
 .ov-hit-beams line { stroke: transparent; stroke-width: 2.2; }
 .ov-hit-beams line:nth-child(1), .ov-hit-beams line:nth-child(3) { stroke: var(--accent); }
 .ov-lock { fill: rgba(29, 31, 33, 0.06); stroke: #1d1f21; stroke-width: 1; stroke-dasharray: 6 3; }
@@ -644,7 +644,7 @@
 
 .inst-thread { list-style: none; margin: 0; padding: 6px 0; }
 .inst-thread__item { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--rule); }
-.inst-thread__pin { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: #fff; font-family: var(--font-mono); font-size: 0.625rem; }
+.inst-thread__pin { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: var(--ink); font-family: var(--font-mono); font-size: 0.625rem; }
 .inst-thread__who { margin: 0; font-size: 0.8125rem; color: var(--ink); }
 .inst-thread__who span { color: var(--ink-3); font-size: 0.75rem; }
 .inst-thread__text { margin: 3px 0 6px; font-size: 0.8125rem; line-height: 1.45; color: var(--ink-2); }
@@ -674,7 +674,7 @@
 .xform__lane-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; margin-bottom: 26px; }
 .xform__lane-head h3 { font-size: var(--text-xl); font-weight: 500; letter-spacing: -0.02em; }
 .xform__tag { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--ink-3); font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-3); }
-.xform__tag--accent { background: var(--accent); border-color: var(--accent); color: #fff; }
+.xform__tag--accent { background: var(--accent); border-color: var(--accent); color: var(--ink); }
 .xform__meta { font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
 
 .xform__lane--before { background: repeating-linear-gradient(135deg, transparent 0 9px, rgba(29, 31, 33, 0.025) 9px 10px); }
@@ -707,7 +707,7 @@
 .xform__line::before { content: ''; position: absolute; left: 0; right: 0; top: 13px; height: 2px; background: var(--accent); transform-origin: left; }
 .xform__line li { position: relative; display: grid; gap: 4px; padding-right: 12px; }
 .xform__station { position: relative; display: grid; place-items: center; width: 28px; height: 28px; margin-bottom: 12px; background: var(--paper-raised); border: 1.5px solid var(--accent); font-family: var(--font-mono); font-size: 0.625rem; font-weight: 500; color: var(--accent-ink); }
-.xform__line li:last-child .xform__station { background: var(--accent); color: #fff; }
+.xform__line li:last-child .xform__station { background: var(--accent); color: var(--ink); }
 .xform__line .xform__k { color: var(--ink); }
 @media (prefers-reduced-motion: no-preference) {
   .xform.motion-entered .xform__line::before { animation: line-draw 1.4s 0.2s var(--ease-precise) both; }

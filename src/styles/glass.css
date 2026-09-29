@@ -97,20 +97,20 @@
   isolation: isolate;
 }
 .btn--primary {
-  color: #fff;
+  color: var(--ink);
   background:
     var(--glass-glint-tint) fixed,
     linear-gradient(165deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.08) 30%, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.14) 100%),
-    rgba(200, 71, 29, 0.9);
+    rgba(79, 182, 186, 0.9);
   box-shadow:
-    inset 0 1px 0.5px rgba(255, 225, 210, 0.95),
-    inset 0 -1px 0.5px rgba(255, 190, 160, 0.5),
-    inset 0 0 18px rgba(255, 170, 130, 0.35),
-    0 10px 26px -10px rgba(168, 57, 15, 0.55),
-    0 2px 6px -2px rgba(168, 57, 15, 0.3);
-  text-shadow: 0 1px 1px rgba(120, 30, 5, 0.35);
+    inset 0 1px 0.5px rgba(222, 249, 250, 0.95),
+    inset 0 -1px 0.5px rgba(174, 229, 231, 0.5),
+    inset 0 0 18px rgba(142, 216, 219, 0.35),
+    0 10px 26px -10px rgba(36, 110, 114, 0.55),
+    0 2px 6px -2px rgba(36, 110, 114, 0.3);
+  text-shadow: none;
 }
-.btn--primary:hover { color: #fff; background-color: rgba(212, 80, 36, 0.92); }
+.btn--primary:hover { color: #fff; background-color: rgba(36, 110, 114, 0.92); }
 .btn--secondary:hover { color: var(--ink); background-color: rgba(255, 255, 255, 0.38); }
 .plan:not(.plan--pro) .btn--primary {
   color: var(--ink);
@@ -285,10 +285,10 @@
   background: rgba(255, 255, 255, 0.28);
 }
 .xform__tag { border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.45); box-shadow: var(--glass-rim); }
-.xform__tag--accent { background: rgba(200, 71, 29, 0.9); color: #fff; box-shadow: inset 0 1px 0.5px rgba(255, 225, 210, 0.9), 0 6px 14px -6px rgba(168, 57, 15, 0.5); }
+.xform__tag--accent { background: rgba(79, 182, 186, 0.9); color: var(--ink); box-shadow: inset 0 1px 0.5px rgba(222, 249, 250, 0.9), 0 6px 14px -6px rgba(36, 110, 114, 0.5); }
 .xform__resolve-label { border-radius: var(--capsule); padding: 8px 18px; }
 .xform__station { border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.6); color: var(--accent-ink); box-shadow: var(--glass-rim), 0 4px 10px -4px rgba(58, 42, 26, 0.25), 0 0 0 1.5px var(--accent); }
-.xform__line li:last-child .xform__station { background: rgba(200, 71, 29, 0.92); color: #fff; box-shadow: inset 0 1px 0.5px rgba(255, 225, 210, 0.9), 0 6px 14px -6px rgba(168, 57, 15, 0.55); }
+.xform__line li:last-child .xform__station { background: rgba(79, 182, 186, 0.92); color: var(--ink); box-shadow: inset 0 1px 0.5px rgba(222, 249, 250, 0.9), 0 6px 14px -6px rgba(36, 110, 114, 0.55); }
 
 /* ---------- Scenes, figures, panels ---------- */
 .ind-v { border-radius: var(--glass-radius); padding: 8px; gap: 0; box-shadow: var(--glass-rim), var(--glass-thickness), var(--glass-drop-lg); }
@@ -310,7 +310,7 @@
 
 .systems { border-radius: var(--glass-radius); overflow: hidden; }
 .systems__row li { border-right-color: rgba(29, 31, 33, 0.08); }
-.systems__layer { margin: 0 8px 8px; border-top: 0; border-radius: 20px; background: rgba(200, 71, 29, 0.1); box-shadow: inset 0 0 0 0.5px rgba(200, 71, 29, 0.3), inset 0 1px 0.5px rgba(255, 255, 255, 0.7); }
+.systems__layer { margin: 0 8px 8px; border-top: 0; border-radius: 20px; background: rgba(79, 182, 186, 0.1); box-shadow: inset 0 0 0 0.5px rgba(79, 182, 186, 0.3), inset 0 1px 0.5px rgba(255, 255, 255, 0.7); }
 
 /* ---------- Closing: a glass pane over a marked-up sheet ---------- */
 .closing__stage { position: relative; }
@@ -320,7 +320,7 @@
 /* ---------- Interior pages ---------- */
 .plans { gap: 18px; border: 0; }
 .plan { border-radius: var(--glass-radius); }
-.plan--pro { box-shadow: var(--glass-rim), var(--glass-thickness), var(--glass-drop), inset 0 0 0 1.5px rgba(200, 71, 29, 0.55); }
+.plan--pro { box-shadow: var(--glass-rim), var(--glass-thickness), var(--glass-drop), inset 0 0 0 1.5px rgba(79, 182, 186, 0.55); }
 @media (max-width: 900px) { .plan { border-bottom: 0 !important; } }
 .segmented { gap: 2px; padding: 4px; border-radius: var(--capsule); }
 .segmented__opt span { border: 0 !important; border-radius: var(--capsule); }
@@ -339,11 +339,11 @@
 .finder input[type='search'] { border-radius: var(--capsule); }
 .field input:focus, .field select:focus, .field textarea:focus, .finder input[type='search']:focus {
   background-color: rgba(255, 255, 255, 0.75);
-  box-shadow: inset 0 0 0 0.5px rgba(29, 31, 33, 0.18), 0 0 0 3px rgba(200, 71, 29, 0.35);
+  box-shadow: inset 0 0 0 0.5px rgba(29, 31, 33, 0.18), 0 0 0 3px rgba(79, 182, 186, 0.35);
 }
 .field.has-error input, .field.has-error select, .field.has-error textarea { box-shadow: 0 0 0 2px var(--accent); }
 .check__box { border: 0; border-radius: 7px; background: rgba(255, 255, 255, 0.55); box-shadow: inset 0 0 0 0.5px rgba(29, 31, 33, 0.25); }
-.check input:checked + .check__box { background: rgba(200, 71, 29, 0.92); box-shadow: inset 0 1px 0.5px rgba(255, 225, 210, 0.9); }
+.check input:checked + .check__box { background: rgba(79, 182, 186, 0.92); box-shadow: inset 0 1px 0.5px rgba(222, 249, 250, 0.9); }
 .outcome span { border: 0; border-radius: var(--capsule); background: rgba(255, 255, 255, 0.35); box-shadow: var(--glass-rim), var(--glass-drop); }
 .outcome input:checked + span { background: rgba(255, 255, 255, 0.7); box-shadow: var(--glass-rim), inset 0 0 0 1.5px var(--ok); }
 .dialog { border-radius: 32px; box-shadow: var(--glass-rim), var(--glass-thickness), var(--glass-drop-lg); }
@@ -433,7 +433,7 @@ main > .page > :first-child, main > :first-child { padding-top: calc(var(--sheet
 .home-hero__aside { border-top-color: rgba(29, 31, 33, 0.14); }
 .marker__rule { background: rgba(29, 31, 33, 0.16); }
 .marker__rule::after { background: rgba(29, 31, 33, 0.3); }
-.marker__n { display: inline-grid; place-items: center; min-width: 30px; height: 22px; padding: 0 8px; border-radius: var(--capsule); background: rgba(200, 71, 29, 0.1); box-shadow: inset 0 0 0 0.5px rgba(200, 71, 29, 0.3); }
+.marker__n { display: inline-grid; place-items: center; min-width: 30px; height: 22px; padding: 0 8px; border-radius: var(--capsule); background: rgba(79, 182, 186, 0.1); box-shadow: inset 0 0 0 0.5px rgba(79, 182, 186, 0.3); }
 .industries, .ind, .faq, .faq__item, .link-rows, .link-rows li, .schedule, .schedule li, .schedule__head,
 .spine__section, .items--grid, .items--grid li, .sector-table, .sector-table li, .principles, .principles li,
 .matrix, .matrix__row, .roles li, .resources, .resources li, .finder, .site-footer__top, .site-footer__titleblock,
@@ -531,7 +531,7 @@ main > .page > :first-child, main > :first-child { padding-top: calc(var(--sheet
   backdrop-filter: none;
 }
 .xform__node, .xform__resolve-label { background: rgba(255, 255, 255, 0.5) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
-.systems__layer { background: rgba(200, 71, 29, 0.08); }
+.systems__layer { background: rgba(79, 182, 186, 0.08); }
 
 /* Under the header: a progressive frosted fade, so content scrolling up
    dissolves into the glass instead of showing crisply above the capsule. */
@@ -549,7 +549,7 @@ main > .page > :first-child, main > :first-child { padding-top: calc(var(--sheet
   mask-image: linear-gradient(to bottom, #000 55%, transparent);
 }
 @media (prefers-reduced-transparency: reduce) {
-  .site-header::after { background: #eee6d8; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .site-header::after { background: #e3f0f0; -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 
 /* Callout panels (e.g. Product boundaries) match the nested glass panes. */
@@ -610,3 +610,7 @@ main > .page > :first-child, main > :first-child { padding-top: calc(var(--sheet
   .xform__line li { grid-template-columns: 16px minmax(0, 1fr); }
   .xform__line::before { left: 7px; }
 }
+
+/* Match the supplied logo: teal symbol and VIZE, graphite DRAW. */
+.wordmark__mark { color: var(--accent); }
+.wordmark__type > g > :nth-child(-n + 8) { fill: var(--accent); }

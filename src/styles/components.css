@@ -103,8 +103,8 @@
 .band--night h3,
 .band--night strong { color: var(--on-night); }
 .band--night .label { color: var(--on-night-2); }
-.band--night a { color: #9cc3ee; }
-.band--night :focus-visible { outline-color: #8fb8e6; }
+.band--night a { color: var(--accent-ink); }
+.band--night :focus-visible { outline-color: var(--accent); }
 
 .section-head {
   display: flex;

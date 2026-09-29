@@ -25,11 +25,11 @@
 }
 
 .problem__lines li:last-child { border-bottom: 1px solid var(--rule-night); }
-.problem__num { font-family: var(--font-mono); font-size: var(--text-xs); color: #e2735d; padding-top: 0.5em; }
+.problem__num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); padding-top: 0.5em; }
 
 .problem__resolve h2 { font-size: var(--text-3xl); margin-bottom: var(--s-5); }
 .h2-line { display: block; }
-.h2-line--accent { color: #f0a594; }
+.h2-line--accent { color: var(--accent); }
 .problem__resolve p { font-size: var(--text-lg); color: var(--on-night-2); max-width: 46ch; }
 
 @media (max-width: 860px) {
@@ -84,7 +84,7 @@
 }
 
 .roles li:last-child { border-bottom: 1px solid var(--rule-night); }
-.roles li:last-child { color: #f1b8a9; }
+.roles li:last-child { color: var(--accent); }
 .roles__boundary { margin-top: var(--s-5); max-width: 40ch; font-size: var(--text-lg); }
 
 /* ---------- Use cases hub ---------- */

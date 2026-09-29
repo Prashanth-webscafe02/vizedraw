@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
 // A slow fluid field behind the whole site: domain-warped noise in the glass
-// palette (ivory, sand, soft terracotta, cool stone). The pointer stirs the
+// palette (soft white, mist, logo teal, cool stone). The pointer stirs the
 // flow locally. Rendered at reduced resolution — the field is soft, so it
 // scales up cleanly — paused in hidden tabs, and a single still frame when
 // the viewer prefers reduced motion. Without WebGL the CSS gradient on
@@ -47,11 +47,11 @@ void main() {
                 fbm(p + 2.2 * q + vec2(8.3, 2.8) - t * 0.9 - stir));
   float f = fbm(p + 2.0 * r);
 
-  vec3 ivory = vec3(0.953, 0.929, 0.886);
-  vec3 sand  = vec3(0.867, 0.800, 0.702);
-  vec3 clay  = vec3(0.902, 0.620, 0.494);
-  vec3 stone = vec3(0.690, 0.757, 0.737);
-  vec3 ember = vec3(0.820, 0.506, 0.380);
+  vec3 ivory = vec3(0.949, 0.980, 0.980);
+  vec3 sand  = vec3(0.776, 0.898, 0.898);
+  vec3 clay  = vec3(0.561, 0.827, 0.839);
+  vec3 stone = vec3(0.718, 0.843, 0.843);
+  vec3 ember = vec3(0.310, 0.714, 0.729);
 
   // Large, soft colour fields — an iOS-style wallpaper, not marbling.
   vec3 col = mix(ivory, sand, smoothstep(0.25, 0.75, f));

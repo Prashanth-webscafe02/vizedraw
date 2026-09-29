@@ -1,6 +1,6 @@
 /* VizeDraw design tokens — the single source for colour, type and spacing.
    "Drafting room" palette: architectural white and stone surfaces, graphite
-   type, precision-grey rules and one signal accent (Drafting Vermilion). The
+   type, precision-grey rules and one signal accent (Logo Teal). The
    site is intentionally light only. */
 :root {
   color-scheme: light;
@@ -30,10 +30,10 @@
   --metal: #a7a59f;          /* brushed metal, used for fine instrument details */
 
   /* Signal accent — used sparingly: CTAs, active states, measurements, changes */
-  --accent: #c8471d;
-  --accent-ink: #a8390f;
-  --accent-soft: #f6e4db;
-  --accent-wash: rgba(200, 71, 29, 0.08);
+  --accent: #4fb6ba;
+  --accent-ink: #246e72;
+  --accent-soft: #e0f2f2;
+  --accent-wash: rgba(79, 182, 186, 0.08);
 
   /* Legacy semantic names now map onto the single-accent system */
   --revision: var(--accent);
