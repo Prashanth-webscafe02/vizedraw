@@ -221,7 +221,6 @@ export function Instrument() {
   const base = useId()
   const current = capabilities.find((c) => c.id === active)!
   const Panel = panels[active]
-  const index = capabilities.indexOf(current)
 
   return (
     <div className="inst">
@@ -252,7 +251,6 @@ export function Instrument() {
               document.getElementById(`${base}-tab-${next.id}`)?.focus()
             }}
           >
-            <span className="inst__num">{String(i + 1).padStart(2, '0')}</span>
             <span className="inst__tab-body">
               <span className="inst__title">{c.title}</span>
               <span className="inst__line">{c.line}</span>
@@ -263,7 +261,7 @@ export function Instrument() {
 
       <div className="inst__frame" id={`${base}-panel`} role="tabpanel" aria-labelledby={`${base}-tab-${active}`}>
         <div className="inst__frame-head">
-          <span>Fig. {String(index + 1).padStart(2, '0')} — {current.title}</span>
+          <span>{current.title}</span>
         </div>
         <div className="inst__stage" key={active}>
           <Panel />

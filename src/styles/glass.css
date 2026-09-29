@@ -576,3 +576,37 @@ main > .page > :first-child, main > :first-child { padding-top: calc(var(--sheet
 }
 .closing__panel::before, .closing__panel::after { display: none !important; }
 .lg-refract .closing__panel { -webkit-backdrop-filter: var(--glass-refract); backdrop-filter: var(--glass-refract); }
+
+/* ---------- VizeDraw logo, one line ---------- */
+.wordmark { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); line-height: 0; }
+.wordmark__mark { height: 36px; width: auto; flex: none; }
+.wordmark__type { height: 13px; width: auto; flex: none; }
+.wordmark__pencil { fill: var(--accent); stroke: var(--accent); }
+.site-footer .wordmark__mark { height: 42px; }
+.site-footer .wordmark__type { height: 15px; }
+@media (max-width: 480px) {
+  .wordmark { gap: 8px; }
+  .wordmark__mark { height: 30px; }
+  .wordmark__type { height: 11px; }
+}
+
+/* ---------- Numbers removed: markers, stations and steps become marks ---------- */
+.marker { grid-template-columns: auto minmax(0, 1fr); }
+.inst__tab { grid-template-columns: minmax(0, 1fr); padding-left: 18px; }
+.ind__head { grid-template-columns: auto minmax(0, 1fr); }
+.sol-index a { grid-template-columns: minmax(0, 1fr) auto; }
+.nav__panel-link { grid-template-columns: minmax(0, 1fr); }
+.xform__lane-head { grid-template-columns: minmax(0, 1fr); }
+.xform__station { width: 16px; height: 16px; margin: 6px 0 16px; }
+.xform__line::before { top: 12px; }
+.xform__line li:last-child .xform__station { width: 20px; height: 20px; margin-top: 4px; }
+.ind__flow span { display: none; }
+.steps__num { display: inline-block; width: 9px; height: 9px; margin-top: 0.55em; border-radius: 50%; background: var(--accent); }
+.schedule li { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); }
+.schedule__head { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); }
+.schedule__head span:first-child { display: none; }
+.controls li { justify-content: flex-start; }
+@media (max-width: 980px) {
+  .xform__line li { grid-template-columns: 16px minmax(0, 1fr); }
+  .xform__line::before { left: 7px; }
+}

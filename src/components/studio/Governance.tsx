@@ -33,7 +33,7 @@ export function GovernanceDiagram() {
             <g key={l.k} className={`gov__level${i === 3 ? ' is-sheet' : ''}`}>
               <path className="gov__plate" d={plate(40, oy)} />
               <path className="gov__edge" d={`M40 ${oy} L40 ${oy + 6} L190 ${oy + 56} L370 ${oy - 4} L370 ${oy - 10}`} />
-              <text className="gov__k" x="392" y={oy - 2}>{String(i + 1).padStart(2, '0')} {l.k}</text>
+              <text className="gov__k" x="392" y={oy - 2}>{l.k}</text>
               <text className="gov__m" x="392" y={oy + 13}>{l.m}</text>
               <line className="gov__leader" x1="372" y1={oy - 6} x2="388" y2={oy - 6} />
             </g>
@@ -72,7 +72,7 @@ export function ControlSchedule({ compact = false }: { compact?: boolean }) {
     return (
       <ul className="controls" aria-label="Enterprise controls">
         {controls.map((c) => (
-          <li key={c.code}><span className="controls__code">{c.code}</span>{c.k}</li>
+          <li key={c.code}>{c.k}</li>
         ))}
       </ul>
     )
@@ -85,7 +85,6 @@ export function ControlSchedule({ compact = false }: { compact?: boolean }) {
       <ul>
         {controls.map((c) => (
           <li key={c.code}>
-            <span className="schedule__code">{c.code}</span>
             <h3>{c.k}</h3>
             <p>{c.d}</p>
           </li>

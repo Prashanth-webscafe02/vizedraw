@@ -25,10 +25,9 @@ export default function Solutions() {
           </div>
           <nav className="hero__visual sol-index" aria-label="Solutions">
             <ol>
-              {industries.map((ind, i) => (
+              {industries.map((ind) => (
                 <li key={ind.id}>
                   <a href={`#${ind.id}`}>
-                    <span className="sol-index__n">{String(i + 1).padStart(2, '0')}</span>
                     <span className="sol-index__name">{ind.name}</span>
                     <span className="sol-index__sheet">{ind.sheet}</span>
                   </a>
@@ -41,8 +40,8 @@ export default function Solutions() {
 
       <section className="sheet-section">
         <div className="container industries">
-          {industries.map((ind, i) => (
-            <IndustryScenario key={ind.id} industry={ind} index={i} headingLevel={2} />
+          {industries.map((ind) => (
+            <IndustryScenario key={ind.id} industry={ind} headingLevel={2} />
           ))}
         </div>
       </section>

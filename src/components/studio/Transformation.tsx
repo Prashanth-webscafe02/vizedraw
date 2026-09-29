@@ -35,7 +35,6 @@ export function Transformation() {
     <div className="xform">
       <div className="xform__lane xform__lane--before">
         <div className="xform__lane-head">
-          <span className="xform__tag">A</span>
           <h3>Traditional workflow</h3>
         </div>
         <div className="xform__scatter">
@@ -63,13 +62,12 @@ export function Transformation() {
 
       <div className="xform__lane xform__lane--after">
         <div className="xform__lane-head">
-          <span className="xform__tag xform__tag--accent">B</span>
           <h3>VizeDraw</h3>
         </div>
         <ol className="xform__line">
           {after.map((n, i) => (
             <li key={n.k} style={{ '--i': i } as CSSProperties}>
-              <span className="xform__station" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <span className="xform__station" aria-hidden="true" />
               <span className="xform__k">{n.k}</span>
             </li>
           ))}

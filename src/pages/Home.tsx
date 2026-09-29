@@ -31,11 +31,10 @@ const systems = [
   { k: 'Execution', v: 'ERP / Site' },
 ]
 
-/** Section opener: number, name and a hairline rule — like a sheet's zone marker. */
-function Marker({ n, name }: { n: string; name: string }) {
+/** Section opener: name and a hairline rule — like a sheet's zone marker. */
+function Marker({ name }: { name: string }) {
   return (
     <div className="marker">
-      <span className="marker__n">{n}</span>
       <span className="marker__name">{name}</span>
       <span className="marker__rule" aria-hidden="true" />
     </div>
@@ -84,7 +83,7 @@ export default function Home() {
       {/* ---------- 01 Capabilities ---------- */}
       <section className="sheet-section" aria-labelledby="cap-title">
         <div className="container">
-          <Marker n="01" name="Workspace" />
+          <Marker name="Workspace" />
           <h2 id="cap-title" className="lead-grid__title lead-title">One workspace. <em>Every drawing.</em></h2>
           <Instrument />
         </div>
@@ -93,7 +92,7 @@ export default function Home() {
       {/* ---------- 02 Transformation ---------- */}
       <section className="sheet-section" aria-labelledby="xform-title">
         <div className="container">
-          <Marker n="02" name="Before / after" />
+          <Marker name="Before / after" />
           <h2 id="xform-title" className="lead-grid__title lead-title">From scattered files to <em>one source.</em></h2>
           <Transformation />
         </div>
@@ -102,14 +101,14 @@ export default function Home() {
       {/* ---------- 03 Industries ---------- */}
       <section className="sheet-section" aria-labelledby="ind-title">
         <div className="container">
-          <Marker n="03" name="Solutions" />
+          <Marker name="Solutions" />
           <div className="lead-row">
             <h2 id="ind-title" className="lead-grid__title lead-title">Built for teams who <em>build from drawings.</em></h2>
             <Link to="/solutions" className="text-link">All solutions</Link>
           </div>
           <div className="industries industries--compact">
-            {industries.map((ind, i) => (
-              <IndustryScenario key={ind.id} industry={ind} index={i} compact />
+            {industries.map((ind) => (
+              <IndustryScenario key={ind.id} industry={ind} compact />
             ))}
           </div>
         </div>
@@ -118,7 +117,7 @@ export default function Home() {
       {/* ---------- 04 Enterprise ---------- */}
       <section className="sheet-section" aria-labelledby="ent-title">
         <div className="container">
-          <Marker n="04" name="Enterprise" />
+          <Marker name="Enterprise" />
           <div className="lead-row">
             <h2 id="ent-title" className="lead-grid__title lead-title">Enterprise control, <em>by design.</em></h2>
             <Link to="/enterprise" className="text-link">Security</Link>
@@ -135,7 +134,7 @@ export default function Home() {
       {/* ---------- 05 Integrations ---------- */}
       <section className="sheet-section" id="integrations" aria-labelledby="fits-title">
         <div className="container">
-          <Marker n="05" name="Integrations" />
+          <Marker name="Integrations" />
           <h2 id="fits-title" className="lead-grid__title lead-title">Fits your <em>existing stack.</em></h2>
           <div className="systems" role="group" aria-label="Where VizeDraw sits among existing systems">
             <ul className="systems__row">

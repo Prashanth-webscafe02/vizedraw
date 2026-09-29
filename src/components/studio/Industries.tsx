@@ -180,13 +180,12 @@ const visuals: Record<string, () => ReactNode> = {
   fabrication: FabricationVisual,
 }
 
-export function IndustryScenario({ industry, index, headingLevel = 3, compact = false }: { industry: Industry; index: number; headingLevel?: 2 | 3; compact?: boolean }) {
+export function IndustryScenario({ industry, headingLevel = 3, compact = false }: { industry: Industry; headingLevel?: 2 | 3; compact?: boolean }) {
   const Visual = visuals[industry.id]
   const H = headingLevel === 2 ? 'h2' : 'h3'
   return (
     <article className={`ind ind--${industry.id}`} id={industry.id} aria-labelledby={`${industry.id}-title`}>
       <header className="ind__head">
-        <span className="ind__num">{String(index + 1).padStart(2, '0')}</span>
         <span className="ind__name">{industry.name}</span>
         {!compact && <span className="ind__sheet">{industry.sheet}</span>}
       </header>
@@ -195,8 +194,8 @@ export function IndustryScenario({ industry, index, headingLevel = 3, compact = 
           <H id={`${industry.id}-title`} className="ind__statement">{industry.statement}</H>
           {!compact && <p>{industry.body}</p>}
           <ol className="ind__flow" aria-label={`${industry.name} workflow`}>
-            {industry.flow.map((f, i) => (
-              <li key={f}><span aria-hidden="true">{String.fromCharCode(65 + i)}</span>{f}</li>
+            {industry.flow.map((f) => (
+              <li key={f}>{f}</li>
             ))}
           </ol>
         </div>

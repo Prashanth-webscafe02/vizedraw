@@ -80,7 +80,7 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
               <div className="nav__group" key={i}>
                 {group.heading && <span className="label">{group.heading}</span>}
                 <ul>
-                  {group.links.map((link, n) => (
+                  {group.links.map((link) => (
                     <li key={link.to}>
                       <Link
                         to={link.to}
@@ -88,7 +88,6 @@ function DesktopItem({ item, pathname }: { item: NavItem; pathname: string }) {
                         aria-current={pathname === link.to ? 'page' : undefined}
                         onClick={() => setOpen(false)}
                       >
-                        <span className="nav__panel-num" aria-hidden="true">{String(n + 1).padStart(2, '0')}</span>
                         <span className="nav__panel-text">
                           <span className="nav__panel-label">{link.label}</span>
                           {link.note && <span className="nav__panel-note">{link.note}</span>}

@@ -60,7 +60,7 @@ export function Steps({ items, compact = false, concise = false }: { items: Item
     <ol className={`steps${compact ? ' steps--compact' : ''}`}>
       {items.map((item, i) => (
         <li key={i}>
-          <span className="steps__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <span className="steps__num" aria-hidden="true" />
           <div>
             {item.term && <h3 className="steps__term">{item.term}</h3>}
             {!(concise && item.term) && <p>{concise ? brief(item.text) : item.text}</p>}

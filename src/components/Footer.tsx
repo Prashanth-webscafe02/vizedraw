@@ -18,9 +18,9 @@ export function Footer() {
             </Link>
             <p>{footer.tagline}</p>
           </div>
-          {footer.columns.map((col, i) => (
+          {footer.columns.map((col) => (
             <nav key={col.heading} className="site-footer__col" aria-label={`${col.heading} links`}>
-              <h2 className="label"><span aria-hidden="true">{String(i + 1).padStart(2, '0')} — </span>{col.heading}</h2>
+              <h2 className="label">{col.heading}</h2>
               <ul>
                 {col.links.map((link) => (
                   <li key={link.to + link.label}>
